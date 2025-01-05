@@ -1,6 +1,7 @@
 <script setup>
 import AppButton from "@/AppButton.vue";
-import DataBinding from "@/DataBinding.vue";
+// import DataBinding from "@/DataBinding.vue";
+import ProductList from "@/ProductList.vue";
 </script>
 
 <template>
@@ -8,5 +9,6 @@ import DataBinding from "@/DataBinding.vue";
     Make a counter
   </AppButton>
  -->
-  <DataBinding></DataBinding>
+  <!-- <DataBinding></DataBinding> -->
+  <ProductList />
 </template>
