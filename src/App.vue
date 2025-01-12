@@ -1,7 +1,29 @@
 <script setup>
+import { ref } from 'vue';
+
 import AppButton from "@/AppButton.vue";
 // import DataBinding from "@/DataBinding.vue";
 import ProductList from "@/ProductList.vue";
+import ProductList2 from "@/ProductList2.vue";
+import Box from "@/Box.vue";
+
+const myColor = "red";
+
+const products = ref([
+    { id: 1, name: "T-Shirt", visible: true },
+    { id: 2, name: "Jeans", visible: true },
+    { id: 3, name: "Redmi Note Pro 10", visible: true },
+    { id: 4, name: "Apple", visible: true },
+]);
+
+const products2 = ref([
+    { id: 1, name: "Computer", visible: true },
+    { id: 2, name: "TV", visible: true },
+    { id: 3, name: "Phone", visible: true },
+    { id: 4, name: "Charger", visible: true },
+]);
+
+
 </script>
 
 <template>
@@ -11,4 +33,16 @@ import ProductList from "@/ProductList.vue";
  -->
   <!-- <DataBinding></DataBinding> -->
   <ProductList />
+
+  <Box :color="myColor" />
+
+  <ProductList2 :products="products" />
+  <!--             ^        ^          -->
+  <!--         prop name    prop value (variable) -->
+
+  <br>
+  <br>
+  <br>
+
+  <ProductList2 :products="products2" />
 </template>
