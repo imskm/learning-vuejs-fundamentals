@@ -6,6 +6,7 @@ import AppButton from "@/AppButton.vue";
 import ProductList from "@/ProductList.vue";
 import ProductList2 from "@/ProductList2.vue";
 import Box from "@/Box.vue";
+import ProductPage from "@/ProductPage.vue";
 
 const myColor = "red";
 
@@ -45,4 +46,8 @@ const products2 = ref([
   <br>
 
   <ProductList2 :products="products2" />
+
+
+  <ProductPage />
+
 </template>
