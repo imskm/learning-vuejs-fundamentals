@@ -4,10 +4,10 @@ import { ref, onMounted } from 'vue';
 import ProductCard from '@/ProductCard.vue';
 
 const products = ref([
-	{ id: 1, name: "T-Shirt", price: 400.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=T-Shirt' },
-	{ id: 2, name: "Jeans", price: 500.00, qty: 2, image_url: 'https://placehold.co/400x400.png?text=Jeans'},
-	{ id: 3, name: "Redmi Note Pro 10", price: 600.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=Redmi Note Pro 10'},
-	{ id: 4, name: "Apple", price: 700.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=Apple'},
+	{ id: 1, name: "T-Shirt", price: 400.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=T-Shirt', visible: true },
+	{ id: 2, name: "Jeans", price: 500.00, qty: 2, image_url: 'https://placehold.co/400x400.png?text=Jeans', visible: true },
+	{ id: 3, name: "Redmi Note Pro 10", price: 600.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=Redmi Note Pro 10', visible: true  },
+	{ id: 4, name: "Apple", price: 700.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=Apple', visible: true },
 ]);
 
 const total = ref(0.00);
@@ -16,14 +16,22 @@ const calculateTotal = () => {
 	total.value = 0.0;
 	for (let i = 0; i < products.value.length; ++i) {
 		const product = products.value[i];
-		const productPrice = product.price * product.qty;
 
-		total.value = total.value + productPrice;
+		if (product.visible) {
+			const productPrice = product.price * product.qty;
+
+			total.value = total.value + productPrice;
+		}
 	}
 }
 
 const reCalculateTotal = (product, qty) => {
 	product.qty = qty;
+	calculateTotal();
+}
+
+const onRemove = (product) => {
+	product.visible = false;
 	calculateTotal();
 }
 
@@ -39,7 +47,12 @@ onMounted(() => {
 		<div class="product-list">
 
 			<template v-for="p in products">
-				<ProductCard :product="p" @on-qty-changed="reCalculateTotal" />
+				<ProductCard
+					v-if="p.visible == true"
+					:product="p"
+					@on-qty-changed="reCalculateTotal"
+					@on-remove="onRemove"
+				/>
 			</template>
 
 		</div>

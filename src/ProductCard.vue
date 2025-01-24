@@ -10,11 +10,16 @@ const props = defineProps({
 
 const emit = defineEmits([
 	'onQtyChanged',
+	'onRemove',
 ]);
 
-const changeQuantity = () => {
+const changeQuantity = (event) => {
 	// console.log(event.target.value);
 	emit('onQtyChanged', props.product, event.target.value);
+}
+
+const onRemove = () => {
+	emit('onRemove', props.product);
 }
 
 // product = { id: 1, name: "T-Shirt", price: 400.00, qty: 1, image_url: 'https://placehold.co/400x400.png?text=T-Shirt'},
@@ -29,5 +34,8 @@ const changeQuantity = () => {
 			<input @input="changeQuantity" type="number" :value="product.qty" min="1">
 			<!-- <button>+</button> -->
 		</p>
+		<div>
+			<button @click="onRemove">Remove</button>
+		</div>
 	</div>
 </template>
