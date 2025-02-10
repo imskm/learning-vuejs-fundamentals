@@ -7,6 +7,7 @@ import ProductList from "@/ProductList.vue";
 import ProductList2 from "@/ProductList2.vue";
 import Box from "@/Box.vue";
 import ProductPage from "@/ProductPage.vue";
+import TodoPage from "@/TodoPage.vue";
 
 const myColor = "red";
 
@@ -49,5 +50,7 @@ const products2 = ref([
 
 
   <ProductPage />
+
+  <TodoPage />
 
 </template>
