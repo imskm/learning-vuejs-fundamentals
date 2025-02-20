@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { RouterView } from 'vue-router';
 
 import AppButton from "@/AppButton.vue";
 // import DataBinding from "@/DataBinding.vue";
@@ -34,15 +35,15 @@ const products2 = ref([
   </AppButton>
  -->
   <!-- <DataBinding></DataBinding> -->
-  <ProductList />
+  <!-- <ProductList /> -->
 
-  <Box :color="myColor" />
+  <!-- <Box :color="myColor" /> -->
 
-  <ProductList2 :products="products" />
+  <!-- <ProductList2 :products="products" /> -->
   <!--             ^        ^          -->
   <!--         prop name    prop value (variable) -->
 
-  <br>
+<!--   <br>
   <br>
   <br>
 
@@ -51,6 +52,8 @@ const products2 = ref([
 
   <ProductPage />
 
-  <TodoPage />
+  <TodoPage /> -->
+
+  <RouterView></RouterView>
 
 </template>
