@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import TodoPage from "@/TodoPage.vue";
 import ProductPage from "@/ProductPage.vue";
+import HomePage from "@/pages/HomePage.vue";
 
 // const routes = [
 // 	{
@@ -17,16 +18,19 @@ import ProductPage from "@/ProductPage.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-  		{
-  			path: '/',
-  			component: null,
-  		},
+		{
+			path: '/',
+			name: 'home',
+			component: HomePage,
+		},
 		{
 			path: '/todo',
+			name: 'todo',
 			component: TodoPage,
 		},
 		{
 			path: '/products',
+			name: 'product.index',
 			component: ProductPage,
 		},
 	],
